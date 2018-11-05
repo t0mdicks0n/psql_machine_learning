@@ -1,3 +1,4 @@
+CREATE LANGUAGE plpython3u;
 DROP TABLE IF EXISTS wine_sample;
 -- Create the table
 CREATE TABLE wine_sample ( 

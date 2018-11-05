@@ -27,6 +27,10 @@ $$
 	from sklearn import linear_model, preprocessing
 	import numpy as np
 	X_unscaled = np.array(features_mat).reshape(int(len(features_mat)/n_features), int(n_features))
+
+	plpy.log(X_unscaled)
+
+
 	# Scale the input (zero mean, unit variance)
 	X = preprocessing.scale(X_unscaled)
 	y = np.array(labels).transpose()

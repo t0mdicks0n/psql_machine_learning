@@ -1,8 +1,11 @@
-
 #### How to run
-1. Build the image
+1. Build the image and run it
 ```bash
 docker build -t psql .
+sudo docker run \
+	-p 5442:5432 \
+	-v /tmp/psql_docker:/var/lib/postgresql/data/ \
+	psql
 ```
 2. In another terminal window, ssh into the container
 ```bash
@@ -29,6 +32,7 @@ SELECT * FROM pg_language;
 CREATE OR REPLACE FUNCTION hello_world ()
 RETURNS TEXT
 AS $$
+print "walla inside a func"
 return "Can you belive it, this is from Python"
 $$ LANGUAGE plpython3u;
 ```
